@@ -1,0 +1,50 @@
+body {
+ 	color: #000;
+ 	background-color: #0f3935;
+ 	font-family: Poppins;
+}
+h1, h2, h3, .nav-link{
+	padding-top: 50px;
+	color: #e19a1c;
+	font-family: "Antonio", light;
+	text-transform: uppercase;
+}
+
+.col-12{
+	color: #000;
+}
+
+.logo{
+	width: 150px;
+}
+
+.poster{
+  width: 100%;
+  height: auto;
+}
+
+.container{
+	padding-top: 3%;
+	padding-bottom: 3%;
+}
+
+.footer-logo{
+	max-height: 40px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+
+.social-icon{
+	color: #000;
+	font-size: 1.4em;
+}
+
+.footer{
+	color: #000;
+	background-color: #fff;
+}
+
+.footer>div{
+	padding-top: 16px;
+	padding-bottom: 16px;
+}
