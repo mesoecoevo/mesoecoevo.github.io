@@ -1,8 +1,1 @@
 # Sociedad mesoamericana de ecología y evolución
-
-## Resumenes
-## Programa
-## Financiamiento
-
----
-2023
