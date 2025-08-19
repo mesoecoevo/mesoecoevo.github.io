@@ -1,1 +1,1 @@
-# Sociedad mesoamericana de ecología y evolución
+# Sociedad Mesoamericana de Ecología y Evolución -SMEE-
