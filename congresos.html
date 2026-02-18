@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Congresos – Sociedad Mesoamericana de Ecología y Evolución</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --verde-bosque: #1e3a2f;
+        --verde-medio: #2d5a3d;
+        --verde-claro: #4a7c59;
+        --tierra: #8b6914;
+        --arena: #f5f0e8;
+        --crema: #fdf9f3;
+        --texto: #1a1a1a;
+        --texto-suave: #4a4a4a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Source Sans 3', sans-serif;
+        background-color: var(--crema);
+        color: var(--texto);
+        margin: 0;
+      }
+
+      /* ── NAVBAR ── */
+      .navbar {
+        background-color: var(--verde-bosque) !important;
+        padding: 0.75rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      }
+      .navbar .logo { height: 48px; }
+      .navbar-nav .nav-link {
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245,240,232,0.85) !important;
+        padding: 0.5rem 1.1rem !important;
+        transition: color 0.2s;
+      }
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active { color: #fff !important; }
+      .navbar-toggler { border-color: rgba(245,240,232,0.4); }
+      .navbar-toggler-icon { filter: invert(1); }
+
+      /* ── PAGE HEADER ── */
+      .page-hero {
+        background: linear-gradient(135deg, var(--verde-bosque) 0%, var(--verde-medio) 100%);
+        color: white;
+        padding: 4rem 2rem 3rem;
+      }
+      .page-hero .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 0.8rem;
+      }
+      .page-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 700;
+        margin: 0;
+        line-height: 1.2;
+      }
+
+      /* ── TABS ── */
+      .congreso-tabs-wrapper {
+        background: var(--arena);
+        border-bottom: 1px solid #ddd8ce;
+        position: sticky;
+        top: 70px;
+        z-index: 50;
+      }
+      .congreso-tabs {
+        display: flex;
+        gap: 0;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .tab-btn {
+        background: none;
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding: 1.1rem 2rem;
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--texto-suave);
+        cursor: pointer;
+        transition: color 0.2s, border-color 0.2s;
+        white-space: nowrap;
+      }
+      .tab-btn:hover { color: var(--verde-bosque); }
+      .tab-btn.active {
+        color: var(--verde-bosque);
+        border-bottom-color: var(--tierra);
+      }
+
+      /* ── CONTENIDO ── */
+      .tab-content-area { display: none; }
+      .tab-content-area.active { display: block; }
+
+      .content-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 5rem;
+      }
+
+      h2.congreso-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.6rem, 3vw, 2.4rem);
+        color: var(--verde-bosque);
+        margin-bottom: 0.5rem;
+      }
+      .congreso-meta {
+        font-size: 0.9rem;
+        color: var(--tierra);
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        margin-bottom: 2rem;
+      }
+      .divider {
+        width: 55px;
+        height: 2px;
+        background: var(--tierra);
+        margin: 1rem 0 2rem;
+      }
+      .congreso-desc {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--texto-suave);
+        font-weight: 300;
+        margin-bottom: 2rem;
+      }
+
+      /* secciones internas */
+      .section-block {
+        margin-bottom: 2.5rem;
+        padding-bottom: 2.5rem;
+        border-bottom: 1px solid #e5e0d6;
+      }
+      .section-block:last-child { border-bottom: none; }
+      .section-block h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        color: var(--verde-bosque);
+        margin-bottom: 1rem;
+      }
+      .section-block p, .section-block li {
+        font-size: 0.98rem;
+        color: var(--texto-suave);
+        line-height: 1.75;
+      }
+      .section-block ul {
+        padding-left: 1.2rem;
+      }
+      .section-block ul li { margin-bottom: 0.3rem; }
+
+      /* invitados */
+      .invitado {
+        background: white;
+        border-left: 3px solid var(--verde-claro);
+        padding: 1.1rem 1.4rem;
+        margin-bottom: 1rem;
+        border-radius: 0 4px 4px 0;
+      }
+      .invitado h5 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05rem;
+        color: var(--verde-bosque);
+        margin-bottom: 0.2rem;
+      }
+      .invitado .institucion {
+        font-size: 0.85rem;
+        color: var(--tierra);
+        font-style: italic;
+        margin-bottom: 0.4rem;
+      }
+      .invitado .charla {
+        font-size: 0.93rem;
+        color: var(--texto-suave);
+        margin: 0;
+      }
+
+      /* tarifas */
+      .tarifa-grid { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; }
+      .tarifa-item {
+        background: white;
+        border: 1px solid #e0ddd5;
+        border-radius: 4px;
+        padding: 1rem 1.5rem;
+        flex: 1;
+        min-width: 160px;
+        text-align: center;
+      }
+      .tarifa-item .precio {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        color: var(--verde-bosque);
+        font-weight: 700;
+      }
+      .tarifa-item .categoria {
+        font-size: 0.82rem;
+        color: var(--texto-suave);
+        margin-top: 0.2rem;
+      }
+
+      /* badge estado */
+      .badge-estado {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.8rem;
+        border-radius: 2px;
+        margin-bottom: 1.5rem;
+      }
+      .badge-pasado { background: #e8e4dc; color: #666; }
+      .badge-activo { background: #d4edda; color: #155724; }
+
+      /* btn */
+      .btn-inscripcion {
+        display: inline-block;
+        background: var(--verde-bosque);
+        color: white;
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 0.8rem 2rem;
+        text-decoration: none;
+        border-radius: 2px;
+        transition: background 0.2s;
+      }
+      .btn-inscripcion:hover { background: var(--verde-medio); color: white; }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--verde-bosque);
+        color: rgba(245,240,232,0.7);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        font-size: 0.88rem;
+      }
+      footer a { color: rgba(245,240,232,0.7); }
+      footer a:hover { color: white; }
+      .footer-logo { height: 32px; margin: 0 0.5rem; filter: brightness(0) invert(1) opacity(0.6); vertical-align: middle; }
+      .footer-logo:hover { filter: brightness(0) invert(1); }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"><img class="logo" src="img/logo.webp" alt="SMEE"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/congresos.html">Congresos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/acercade.html">Acerca de</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/smecoevo/" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/smecoevo" target="_blank" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="label">SMEE · Eventos</div>
+        <h1>Congresos Mesoamericanos<br>de Ecología y Evolución</h1>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="congreso-tabs-wrapper">
+      <div class="congreso-tabs">
+        <button class="tab-btn" id="tab-ii" onclick="showTab('ii')">II Congreso · 2025</button>
+        <button class="tab-btn" id="tab-i" onclick="showTab('i')">I Congreso · 2023</button>
+      </div>
+    </div>
+
+    <!-- ══ II CONGRESO ══ -->
+    <div class="tab-content-area" id="content-ii">
+      <div class="content-wrapper">
+        <span class="badge-estado badge-activo">Próximo evento</span>
+        <h2 class="congreso-title">II Congreso Mesoamericano de Ecología y Evolución</h2>
+        <div class="congreso-meta">22–25 de Julio, 2025 · Universidad del Valle de Guatemala · Ciudad de Guatemala</div>
+        <div class="divider"></div>
+
+        <p class="congreso-desc">Guatemala será sede del II Congreso Mesoamericano de Ecología y Evolución, organizado por la Sociedad Mesoamericana de Ecología y Evolución con el patrocinio de la Sociedad Europea para Biología Evolutiva (ESEB), la Sociedad para Biología Molecular y Evolución (SMBE) y la Universidad del Valle de Guatemala. Este congreso fungirá además como sede mesoamericana del II Congreso Latinoamericano de Evolución a realizarse en Tucumán, Argentina.</p>
+
+        <div class="section-block">
+          <h3>Sobre el evento</h3>
+          <p>El congreso consistirá de una serie de simposios con conferencias invitadas y charlas enviadas por asistentes, además de una sesión de pósters. Se realizarán transmisiones de las conferencias de la sede principal en Tucumán (<a href="https://iiclevol-tuc-2025.wixsite.com/iiclevol/about-1" target="_blank">ver sitio</a>).</p>
+          <p>Buscamos expandir el alcance del congreso para incluir a científicos de toda la región y fortalecer la red local.</p>
+        </div>
+
+        <div class="section-block">
+          <h3>Temas</h3>
+          <p>Los temas para charlas y pósters incluyen, entre otros:</p>
+          <ul>
+            <li>Adaptación</li>
+            <li>Genética de poblaciones</li>
+            <li>Taxonomía y filogenética</li>
+            <li>Biogeografía</li>
+            <li>Modelos teóricos</li>
+          </ul>
+          <p>Si el tema de tu presentación no está listado, puedes sugerirlo en tu aplicación.</p>
+        </div>
+
+        <div class="section-block">
+          <h3>Invitados especiales</h3>
+          <div class="invitado">
+            <h5>A anunciarse pronto...</h5>
+            <p class="charla">Mantente pendiente de nuestras redes sociales para las próximas actualizaciones.</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Inscripción y registro</h3>
+          <p>Para inscribirte al congreso, completa el formulario a continuación:</p>
+          <a href="https://forms.gle/veXUh1BSv6R2zD6y5" target="_blank" class="btn-inscripcion">Formulario de inscripción</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ I CONGRESO ══ -->
+    <div class="tab-content-area" id="content-i">
+      <div class="content-wrapper">
+        <span class="badge-estado badge-pasado">Congreso realizado</span>
+        <h2 class="congreso-title">I Congreso Mesoamericano de Ecología y Evolución</h2>
+        <div class="congreso-meta">24–26 de Agosto, 2023 · Colegio de Farmacéuticos y Químicos · Ciudad de Guatemala</div>
+        <div class="divider"></div>
+
+        <p class="congreso-desc">En este primer congreso establecimos los estatutos fundacionales de la Sociedad Mesoamericana de Ecología y Evolución, creamos una red de profesionales en la región y dimos a conocer el trabajo científico de nuestra comunidad. El evento fue híbrido, con sesiones disponibles en línea.</p>
+
+        <div class="section-block">
+          <h3>Temas del congreso</h3>
+          <ul>
+            <li>Ecología y comportamiento</li>
+            <li>Evolución y adaptación</li>
+            <li>Genética para la conservación</li>
+            <li>Taxonomía y filogenética</li>
+            <li>Modelos teóricos</li>
+          </ul>
+        </div>
+
+        <div class="section-block">
+          <h3>Invitados especiales</h3>
+          <div class="invitado">
+            <h5>Josefa González</h5>
+            <div class="institucion">Consejo Superior de Investigaciones Científicas, España</div>
+            <p class="charla">La base genómica de la adaptación: una aproximación científica y ciudadana</p>
+          </div>
+          <div class="invitado">
+            <h5>Marc Girondot</h5>
+            <div class="institucion">Universidad Paris Saclay, Francia</div>
+            <p class="charla">Eco-Evo-Devo: The time has come to introduce ecological information into Evo-Devo research field</p>
+          </div>
+          <div class="invitado">
+            <h5>Alejandra Zamora</h5>
+            <div class="institucion">Universidad del Valle de Guatemala</div>
+            <p class="charla">Estructuración poblacional y diversidad genética de Agalychnis moreletii ¿Preocupación menor?</p>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Programa</h3>
+          <object data="/programa.pdf" type="application/pdf" width="100%" height="500px">
+            <p>No es posible mostrar el archivo en este navegador. <a href="/programa.pdf">Descarga el programa aquí.</a></p>
+          </object>
+        </div>
+
+        <div class="section-block">
+          <h3>Tarifas</h3>
+          <div class="tarifa-grid">
+            <div class="tarifa-item">
+              <div class="precio">Q.100 / USD 14</div>
+              <div class="categoria">Profesionales</div>
+            </div>
+            <div class="tarifa-item">
+              <div class="precio">Q.50 / USD 7</div>
+              <div class="categoria">Estudiantes maestría / doctorado</div>
+            </div>
+            <div class="tarifa-item">
+              <div class="precio">Sin costo</div>
+              <div class="categoria">Pregrado / modalidad virtual</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Inscripción</h3>
+          <p>Las inscripciones para este congreso están actualmente cerradas. Para más información, contáctanos en <a href="mailto:smecoevo@gmail.com">smecoevo@gmail.com</a>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="mb-2">
+        Con el apoyo de:
+        <a href="https://eseb.org/" target="_blank"><img class="footer-logo" src="img/eseb.png" alt="ESEB"></a>
+        <a href="https://evobiocrashcourse.github.io/" target="_blank"><img class="footer-logo" src="img/crashcourse.png" alt="Crash Course"></a>
+      </div>
+      <div>© Sociedad Mesoamericana de Ecología y Evolución · 2025</div>
+    </footer>
+
+    <script>
+      function showTab(id) {
+        // ocultar todos
+        document.querySelectorAll('.tab-content-area').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+        // mostrar el seleccionado
+        document.getElementById('content-' + id).classList.add('active');
+        document.getElementById('tab-' + id).classList.add('active');
+      }
+
+      // activar tab por hash en URL
+      function activateFromHash() {
+        const hash = window.location.hash;
+        if (hash === '#i-congreso') showTab('i');
+        else showTab('ii'); // por defecto el más reciente
+      }
+
+      window.addEventListener('load', activateFromHash);
+      window.addEventListener('hashchange', activateFromHash);
+    </script>
+  </body>
+</html>
