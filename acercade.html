@@ -1,89 +1,252 @@
-
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <title>Sociedad Mesoamericana de Ecología y Evolución</title>
+    <title>Acerca de – Sociedad Mesoamericana de Ecología y Evolución</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300&family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <style>
+      :root {
+        --verde-bosque: #1e3a2f;
+        --verde-medio: #2d5a3d;
+        --verde-claro: #4a7c59;
+        --tierra: #8b6914;
+        --arena: #f5f0e8;
+        --crema: #fdf9f3;
+        --texto: #1a1a1a;
+        --texto-suave: #4a4a4a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Source Sans 3', sans-serif;
+        background-color: var(--crema);
+        color: var(--texto);
+        margin: 0;
+      }
 
+      /* ── NAVBAR ── */
+      .navbar {
+        background-color: var(--verde-bosque) !important;
+        padding: 0.75rem 2rem;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      }
+      .navbar .logo { height: 48px; }
+      .navbar-nav .nav-link {
+        font-family: 'Source Sans 3', sans-serif;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(245,240,232,0.85) !important;
+        padding: 0.5rem 1.1rem !important;
+        transition: color 0.2s;
+      }
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active { color: #fff !important; }
+      .navbar-toggler { border-color: rgba(245,240,232,0.4); }
+      .navbar-toggler-icon { filter: invert(1); }
+
+      /* ── PAGE HERO ── */
+      .page-hero {
+        background: linear-gradient(135deg, var(--verde-bosque) 0%, var(--verde-medio) 100%);
+        color: white;
+        padding: 4rem 2rem 3rem;
+      }
+      .page-hero .label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.5);
+        margin-bottom: 0.8rem;
+      }
+      .page-hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 700;
+        margin: 0;
+      }
+
+      /* ── CONTENIDO ── */
+      .content-wrapper {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 5rem;
+      }
+      .divider {
+        width: 55px;
+        height: 2px;
+        background: var(--tierra);
+        margin: 1rem 0 2rem;
+      }
+      .intro-text {
+        font-size: 1.1rem;
+        line-height: 1.85;
+        color: var(--texto-suave);
+        font-weight: 300;
+        margin-bottom: 3rem;
+      }
+
+      /* ── EQUIPO ── */
+      .section-heading {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.6rem;
+        color: var(--verde-bosque);
+        margin-bottom: 0.3rem;
+      }
+      .miembro-card {
+        background: white;
+        border: 1px solid #e5e0d6;
+        border-radius: 4px;
+        padding: 1.8rem;
+        margin-bottom: 1.2rem;
+        transition: box-shadow 0.2s;
+      }
+      .miembro-card:hover { box-shadow: 0 4px 18px rgba(30,58,47,0.1); }
+      .miembro-card h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.15rem;
+        color: var(--verde-bosque);
+        margin-bottom: 0.4rem;
+      }
+      .miembro-card p {
+        font-size: 0.95rem;
+        color: var(--texto-suave);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* ── APOYO ── */
+      .apoyo-section {
+        background: var(--arena);
+        border-radius: 4px;
+        padding: 2rem;
+        margin-top: 3rem;
+      }
+      .apoyo-section h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        color: var(--verde-bosque);
+        margin-bottom: 1rem;
+      }
+      .apoyo-section p {
+        font-size: 0.98rem;
+        color: var(--texto-suave);
+        line-height: 1.75;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: var(--verde-bosque);
+        color: rgba(245,240,232,0.7);
+        padding: 2.5rem 2rem;
+        text-align: center;
+        font-size: 0.88rem;
+      }
+      footer a { color: rgba(245,240,232,0.7); }
+      footer a:hover { color: white; }
+      .footer-logo { height: 32px; margin: 0 0.5rem; filter: brightness(0) invert(1) opacity(0.6); vertical-align: middle; }
+    </style>
   </head>
-  <body class="d-flex flex-column min-vh-100">
-    <article role="main">
-      <div class="primary-nav">
-        <div class="page-header clearfix sticky-sm-top">
-          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="/index.html"><img class="logo" src="img/logo.webp"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto h3">
-                  <li class="nav-item">
-                    <a class="nav-link" href="/acercade.html">Acerca de</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="https://www.instagram.com/smecoevo/">&nbsp&nbsp<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-    <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
-                    </svg></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="https://twitter.com/smecoevo">&nbsp&nbsp<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
-                        <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
-                      </svg></a>
-                  </li>
+  <body>
 
-                </ul>
-              </div>
-            </div>
-          </nav>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html"><img class="logo" src="img/logo.webp" alt="SMEE"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="/congresos.html">Congresos</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/acercade.html">Acerca de</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.instagram.com/smecoevo/" target="_blank" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://twitter.com/smecoevo" target="_blank" aria-label="Twitter">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/></svg>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
+    </nav>
 
+    <!-- PAGE HERO -->
+    <div class="page-hero">
       <div class="container">
-        <div class="row gx-3 justify-content-center">
-          <div class="col-12" style="background: white; padding-left: 16px; padding-right: 16px;">
-            <h1>Acerca de</h1>
-            <p>Somos un grupo de estudiantes y profesionales en ecología y evolución, comprometidos a fortalecer la red del área en Mesoamérica. Nuestro comité organizador está formado por:</p>
-            <ul>
-              <li><h4>Sergio González Mollinedo</h4>
-              <p>Estudiante de Doctorado doble en la Universidad de Groningen, Países Bajos, y en la Universidad de Macquarie, Australia. Se enfoca en la genómica de la depresión endogámica, el envejecimiento y la evolvabilidad genómica en aves</p></li>
-              <li><h4>Julio Ayala López</h4>
-              <p>Estudiante de Doctorado en el grupo de Ecología y Evolución Teórica (Theoretical Ecology and Evolution) en la Universidad de Berna, Suiza. Se enfoca en modelos de hibridación, heterosis, e incompatibilidades.</p></li>
-              <li><h4>Carlos Chúa Velásquez</h4>
-                <p>Estudiante de licenciatura en Biología en la Universidad de San Carlos de Guatemala. Intersado en aves, filogeografía, especiación, introgresión y la historia evolutiva de la biota en Centroamérica</p></li>
-              <li><h4>Ana Lucía Arévalo Figueroa</h4>
-                <p></p></li>
-                <li><h4>María José Chang</h4><p></p></li>
-              <li><h4>Lourdes Núñez</h4>
-                <p></p></li>
-            </ul>
-            
+        <div class="label">SMEE · La Sociedad</div>
+        <h1>Acerca de la SMEE</h1>
+      </div>
+    </div>
 
-            <p>El primer congreso de la Sociedad Mesoamericana de Ecología y Evolución se llevará a cabo gracias al apoyo de la Iniciativa Global de Biología Evolutiva (Global Evolutionary Biology Initiative - GEBI) de la Sociedad Europea para Biología Evolutiva <a href="https://eseb.org/">(European Society for Evolutionary Biology - ESEB)</a>, y el <a href="https://evobiocrashcourse.github.io/">Evolutionary Biology Crash Course</a>.</p>
-          </div>         
-          
+    <!-- CONTENIDO -->
+    <div class="container">
+      <div class="content-wrapper">
+
+        <div class="divider"></div>
+        <p class="intro-text">Somos un grupo de estudiantes y profesionales en ecología y evolución, comprometidos a fortalecer la red del área en Mesoamérica. Nuestro comité organizador está formado por:</p>
+
+        <h2 class="section-heading">Comité organizador</h2>
+        <div class="divider"></div>
+
+        <div class="miembro-card">
+          <h4>Sergio González Mollinedo</h4>
+          <p>Estudiante de Doctorado doble en la Universidad de Groningen, Países Bajos, y en la Universidad de Macquarie, Australia. Se enfoca en la genómica de la depresión endogámica, el envejecimiento y la evolvabilidad genómica en aves.</p>
         </div>
+        <div class="miembro-card">
+          <h4>Julio Ayala López</h4>
+          <p>Estudiante de Doctorado en el grupo de Ecología y Evolución Teórica (Theoretical Ecology and Evolution) en la Universidad de Berna, Suiza. Se enfoca en modelos de hibridación, heterosis e incompatibilidades.</p>
+        </div>
+        <div class="miembro-card">
+          <h4>Carlos Chúa Velásquez</h4>
+          <p>Estudiante de licenciatura en Biología en la Universidad de San Carlos de Guatemala. Interesado en aves, filogeografía, especiación, introgresión y la historia evolutiva de la biota en Centroamérica.</p>
+        </div>
+        <div class="miembro-card">
+          <h4>Ana Lucía Arévalo Figueroa</h4>
+        </div>
+        <div class="miembro-card">
+          <h4>María José Chang</h4>
+		   <p>Bióloga conservacionista, ha dedicado su carrera  a la investigación y conservación de anfibios y reptiles.</p>
+        </div>
+        <div class="miembro-card">
+          <h4>Lourdes Núñez</h4>
+		<p>Bióloga conservacionista con amplia experiencia en la preservación de la biodiversidad, especialmente en la conservación de murciélagos en Guatemala.  </p>  
+        </div>
+
+        <div class="apoyo-section">
+          <h3>Agradecimientos y apoyo</h3>
+          <p>El primer congreso de la Sociedad Mesoamericana de Ecología y Evolución se llevó a cabo gracias al apoyo de la Iniciativa Global de Biología Evolutiva (Global Evolutionary Biology Initiative – GEBI) de la <a href="https://eseb.org/" target="_blank">Sociedad Europea para Biología Evolutiva (ESEB)</a>, y el <a href="https://evobiocrashcourse.github.io/" target="_blank">Evolutionary Biology Crash Course</a>.</p>
+        </div>
+
       </div>
-    </article>
-    <footer class="mt-auto footer">
-      <div class="d-flex justify-content-center text-center">
-        <span>Con el apoyo de: <a href="https://eseb.org/"><img class="footer-logo" src="img/eseb.png"></a> <a href="https://evobiocrashcourse.github.io/"><img class="footer-logo" src="img/crashcourse.png"></a></span>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="mb-2">
+        Con el apoyo de:
+        <a href="https://eseb.org/" target="_blank"><img class="footer-logo" src="img/eseb.png" alt="ESEB"></a>
+        <a href="https://evobiocrashcourse.github.io/" target="_blank"><img class="footer-logo" src="img/crashcourse.png" alt="Crash Course"></a>
       </div>
-      <div class="d-flex justify-content-center text-center">
-        <span>© Sociedad Mesoamericana de Ecología y Evolución - 2023</span>
-      </div>
+      <div>© Sociedad Mesoamericana de Ecología y Evolución · 2025</div>
     </footer>
+
   </body>
 </html>
