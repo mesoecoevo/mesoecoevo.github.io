@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
     <style>
@@ -26,7 +26,7 @@
       }
       * { box-sizing: border-box; }
       body {
-        font-family: 'Source Sans 3', sans-serif;
+        font-family: 'Nunito', sans-serif;
         background-color: var(--crema);
         color: var(--texto);
         margin: 0;
@@ -41,9 +41,9 @@
         z-index: 100;
         box-shadow: 0 2px 12px rgba(0,0,0,0.25);
       }
-      .navbar .logo { height: 48px; }
+      .navbar .logo { height: 64px; }
       .navbar-nav .nav-link {
-        font-family: 'Source Sans 3', sans-serif;
+        font-family: 'Nunito', sans-serif;
         font-weight: 600;
         font-size: 0.95rem;
         letter-spacing: 0.08em;
@@ -72,7 +72,7 @@
         margin-bottom: 0.8rem;
       }
       .page-hero h1 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Nunito', sans-serif;
         font-size: clamp(1.8rem, 4vw, 3rem);
         font-weight: 700;
         margin: 0;
@@ -126,7 +126,7 @@
       }
 
       h2.congreso-title {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Nunito', sans-serif;
         font-size: clamp(1.6rem, 3vw, 2.4rem);
         color: var(--verde-bosque);
         margin-bottom: 0.5rem;
@@ -160,7 +160,7 @@
       }
       .section-block:last-child { border-bottom: none; }
       .section-block h3 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Nunito', sans-serif;
         font-size: 1.3rem;
         color: var(--verde-bosque);
         margin-bottom: 1rem;
@@ -184,7 +184,7 @@
         border-radius: 0 4px 4px 0;
       }
       .invitado h5 {
-        font-family: 'Playfair Display', serif;
+        font-family: 'Nunito', sans-serif;
         font-size: 1.05rem;
         color: var(--verde-bosque);
         margin-bottom: 0.2rem;
@@ -308,20 +308,35 @@
     <!-- TABS -->
     <div class="congreso-tabs-wrapper">
       <div class="congreso-tabs">
-        <button class="tab-btn" id="tab-ii" onclick="showTab('ii')">II Congreso · 2025</button>
         <button class="tab-btn" id="tab-i" onclick="showTab('i')">I Congreso · 2023</button>
+        <button class="tab-btn" id="tab-ii" onclick="showTab('ii')">II Congreso · 2025</button>
       </div>
     </div>
 
     <!-- ══ II CONGRESO ══ -->
     <div class="tab-content-area" id="content-ii">
       <div class="content-wrapper">
-        <span class="badge-estado badge-activo">Próximo evento</span>
+        <span class="badge-estado badge-pasado">Congreso Realizado</span>
         <h2 class="congreso-title">II Congreso Mesoamericano de Ecología y Evolución</h2>
         <div class="congreso-meta">22–25 de Julio, 2025 · Universidad del Valle de Guatemala · Ciudad de Guatemala</div>
         <div class="divider"></div>
 
         <p class="congreso-desc">Guatemala será sede del II Congreso Mesoamericano de Ecología y Evolución, organizado por la Sociedad Mesoamericana de Ecología y Evolución con el patrocinio de la Sociedad Europea para Biología Evolutiva (ESEB), la Sociedad para Biología Molecular y Evolución (SMBE) y la Universidad del Valle de Guatemala. Este congreso fungirá además como sede mesoamericana del II Congreso Latinoamericano de Evolución a realizarse en Tucumán, Argentina.</p>
+
+        <div class="section-block">
+          <h3>Arte del congreso</h3>
+          <div class="row g-3 mb-2">
+            <div class="col-sm-6 text-center">
+              <img src="img/logo_ii_congreso_2025.png" alt="Arte II Congreso ECOEVO 2025 - versión verde" style="width:100%; max-width:340px; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.12);">
+            </div>
+            <div class="col-sm-6 text-center">
+              <img src="img/logo_ii_congreso_2025_v2.png" alt="Arte II Congreso ECOEVO 2025 - versión azul" style="width:100%; max-width:340px; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.12);">
+            </div>
+          </div>
+          <p style="font-size:0.85rem; color:var(--texto-suave); font-style:italic; text-align:center; margin-top:0.5rem;">
+            Ilustraciones: <strong>Andreína Santos</strong>
+          </p>
+        </div>
 
         <div class="section-block">
           <h3>Sobre el evento</h3>
@@ -345,15 +360,49 @@
         <div class="section-block">
           <h3>Invitados especiales</h3>
           <div class="invitado">
-            <h5>A anunciarse pronto...</h5>
-            <p class="charla">Mantente pendiente de nuestras redes sociales para las próximas actualizaciones.</p>
+            <h5>Ivalú Cacho</h5>
+            <div class="institucion">Instituto de Biología UNAM</div>
+            <p class="charla">Evolución en Mesoamérica, una perspectiva desde Ipomoea y Euphorbia</p>
+          </div>
+          <div class="invitado">
+            <h5>Rosa Alicia Jiménez</h5>
+            <div class="institucion">Escuela de Biología USAC</div>
+            <p class="charla">Biogeografía y conservación de aves de montaña del norte de América Central</p>
+          </div>
+          <div class="invitado">
+            <h5>Sergio González Mollinedo</h5>
+            <div class="institucion">Groningen University / Macquarie University</div>
+            <p class="charla">Evolución y degradación de características plásticas complejas en colapsos poblacionales</p>
           </div>
         </div>
 
         <div class="section-block">
-          <h3>Inscripción y registro</h3>
-          <p>Para inscribirte al congreso, completa el formulario a continuación:</p>
-          <a href="https://forms.gle/veXUh1BSv6R2zD6y5" target="_blank" class="btn-inscripcion">Formulario de inscripción</a>
+          <h3>Programa</h3>
+          <p>Puedes consultar el programa completo del congreso en el siguiente enlace:</p>
+          <a href="https://drive.google.com/file/d/1RqjMNeNRbelxrXd_Q3ObMca_F2O6mduD/view?usp=sharing" target="_blank" class="btn-inscripcion">Ver programa</a>
+        </div>
+
+        <div class="section-block">
+          <h3>Tarifas</h3>
+          <div class="tarifa-grid">
+            <div class="tarifa-item">
+              <div class="precio">Q.100 / USD 14</div>
+              <div class="categoria">Profesionales</div>
+            </div>
+            <div class="tarifa-item">
+              <div class="precio">Q.50 / USD 7</div>
+              <div class="categoria">Estudiantes maestría / doctorado</div>
+            </div>
+            <div class="tarifa-item">
+              <div class="precio">Sin costo</div>
+              <div class="categoria">Pregrado / modalidad virtual</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-block">
+          <h3>Inscripción</h3>
+          <p>Las inscripciones para este congreso están actualmente cerradas. Para más información, contáctanos en <a href="mailto:smecoevo@gmail.com">smecoevo@gmail.com</a>.</p>
         </div>
       </div>
     </div>
@@ -367,6 +416,16 @@
         <div class="divider"></div>
 
         <p class="congreso-desc">En este primer congreso establecimos los estatutos fundacionales de la Sociedad Mesoamericana de Ecología y Evolución, creamos una red de profesionales en la región y dimos a conocer el trabajo científico de nuestra comunidad. El evento fue híbrido, con sesiones disponibles en línea.</p>
+
+        <div class="section-block">
+          <h3>Arte del congreso</h3>
+          <div class="text-center mb-2">
+            <img src="img/logo_i_congreso_2023.png" alt="Arte I Congreso Mesoamericano de Ecología y Evolución 2023" style="width:100%; max-width:480px; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.12);">
+          </div>
+          <p style="font-size:0.85rem; color:var(--texto-suave); font-style:italic; text-align:center; margin-top:0.5rem;">
+            Ilustración: <strong>La creatura</strong> (<a href="https://www.instagram.com/la_creatura.gt/" target="_blank">@la_creatura.gt</a>)
+          </p>
+        </div>
 
         <div class="section-block">
           <h3>Temas del congreso</h3>
@@ -426,6 +485,13 @@
         <div class="section-block">
           <h3>Inscripción</h3>
           <p>Las inscripciones para este congreso están actualmente cerradas. Para más información, contáctanos en <a href="mailto:smecoevo@gmail.com">smecoevo@gmail.com</a>.</p>
+        </div>
+
+        <div class="section-block">
+          <h3>Último día del congreso</h3>
+          <div class="text-center mb-2">
+            <img src="img/i_congreso_2023.jpg" alt="Foto grupal del último día del I Congreso Mesoamericano de Ecología y Evolución 2023" style="width:100%; border-radius:8px; box-shadow:0 4px 18px rgba(0,0,0,0.12);">
+          </div>
         </div>
       </div>
     </div>
